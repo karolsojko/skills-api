@@ -15,12 +15,12 @@ skills-nginx:
     links:
         - skills-web
     ports:
-        - "80:80"
+        - "80"
     restart: always
 skills-db:
     image: mongo:3.2
     ports:
-        - "27017:27017"
+        - "27017"
     volumes:
         - /mnt/sda1/var/lib/skills-api:/data/db
     restart: always
