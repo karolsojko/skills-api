@@ -7,6 +7,8 @@ ADD . /var/www/skills-api
 ADD ./docker/php/php.ini /usr/local/etc/php/php.ini
 ADD ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
+RUN chown -R www-data:www-data /var/www/skills-api/var/cache /var/www/skills-api/var/logs
+
 RUN apt-get update \
     && apt-get install -y libicu-dev git zip libssl-dev \
     && docker-php-ext-install intl \
