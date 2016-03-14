@@ -1,0 +1,12 @@
+services:
+  - docker
+install:
+ - 'docker-compose run web composer install -n'
+script:
+ - 'docker-compose run web bin/phpspec run'
+deploy:
+  - provider: script
+      skip_cleanup: true
+      script: ./deploy.sh latest
+      on:
+        branch: master
