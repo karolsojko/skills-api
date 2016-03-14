@@ -17,7 +17,7 @@
         }
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.0.4",
         "symfony/symfony": "3.0.*",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
@@ -30,7 +30,8 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "phpspec/phpspec": "^2.4"
     },
     "scripts": {
         "post-install-cmd": [
@@ -52,8 +53,9 @@
     },
     "config": {
         "platform": {
-            "php": "5.5.9"
-        }
+            "php": "7.0.4"
+        },
+        "bin-dir": "bin"
     },
     "extra": {
         "symfony-app-dir": "app",
