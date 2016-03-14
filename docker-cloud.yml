@@ -2,6 +2,7 @@ skills-web:
     image: karolsojko/skills-api
     volumes:
         - /var/www/skills-api
+        - /etc/nginx/conf.d
     working_dir: /var/www/skills-api
     expose:
         - "9000"
