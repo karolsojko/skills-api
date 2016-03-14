@@ -6,7 +6,7 @@ script:
  - 'docker-compose run web bin/phpspec run'
 deploy:
   - provider: script
-      skip_cleanup: true
-      script: ./deploy.sh latest
-      on:
-        branch: master
+    skip_cleanup: true
+    script: ./deploy.sh latest
+    on:
+      branch: master
