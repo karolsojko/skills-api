@@ -17,6 +17,8 @@ skills-nginx:
         - skills-web:web
     ports:
         - "80"
+    environment:
+        - VIRTUAL_HOST=your.domain.com
     restart: always
 skills-db:
     image: mongo:3.2
