@@ -1,4 +1,23 @@
-skills-api
+Skills API
 ==========
 
-A Symfony project created on March 14, 2016, 12:05 pm.
+[![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/)
+
+To run locally
+
+```
+docker-compose up -d
+```
+
+install dependencies:
+
+```
+docker-compose run web bash
+composer install -n
+```
+
+run tests:
+
+```
+docker-compose run web bin/phpspec run
+```

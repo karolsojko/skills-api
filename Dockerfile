@@ -3,6 +3,10 @@ FROM php:7.0-fpm
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer
 
+ADD . /var/www/skills-api
+ADD ./docker/php/php.ini /usr/local/etc/php/php.ini
+ADD ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+
 RUN apt-get update \
     && apt-get install -y libicu-dev git zip libssl-dev \
     && docker-php-ext-install intl \
