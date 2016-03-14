@@ -6,13 +6,13 @@ skills-web:
     expose:
         - "9000"
     links:
-        - db
+        - skills-db
 skills-nginx:
     image: nginx:1.9
     volumes_from:
-        - web
+        - skills-web
     links:
-        - web
+        - skills-web
     ports:
         - "80:80"
 skills-db:
