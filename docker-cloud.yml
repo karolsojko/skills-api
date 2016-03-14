@@ -7,6 +7,7 @@ skills-web:
         - "9000"
     links:
         - skills-db
+    restart: always
 skills-nginx:
     image: nginx:1.9
     volumes_from:
@@ -15,9 +16,11 @@ skills-nginx:
         - skills-web
     ports:
         - "80:80"
+    restart: always
 skills-db:
     image: mongo:3.2
     ports:
         - "27017:27017"
     volumes:
         - /mnt/sda1/var/lib/skills-api:/data/db
+    restart: always
