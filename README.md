@@ -5,6 +5,8 @@ Microservice for handling skills as an entity for other applications. You can ad
 
 [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/)
 
+[![Build Status](https://travis-ci.org/karolsojko/skills-api.svg?branch=master)](https://travis-ci.org/karolsojko/skills-api)
+
 To run locally
 
 ```
