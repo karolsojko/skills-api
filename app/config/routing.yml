@@ -1,7 +1,11 @@
 skill_create:
     type:     rest
     resource: AppBundle\Controller\Skills\CreateController
-    
+
+skill_read:
+    type:     rest
+    resource: AppBundle\Controller\Skills\ReadController
+
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc

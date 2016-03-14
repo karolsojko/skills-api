@@ -8,3 +8,6 @@ services:
     app.use_case.add_skill:
         class: Domain\UseCase\AddSkill
         arguments: ['@app.repository.skill', '@slugify']
+    app.use_case.list_skills:
+        class: Domain\UseCase\ListSkills
+        arguments: ['@app.repository.skill']

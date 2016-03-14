@@ -2,7 +2,7 @@
 
 namespace Domain\UseCase;
 
-use Domain\Repository\SkillRepository;
+use Domain\Repository\SkillsRepository;
 use Domain\UseCase\AddSkill\Responder;
 use Domain\UseCase\AddSkill\Command;
 use Domain\Model\Skill;
@@ -10,14 +10,14 @@ use Cocur\Slugify\Slugify;
 
 class AddSkill
 {
-    private $skillRepository;
+    private $skillsRepository;
     private $slugify;
 
     public function __construct(
-        SkillRepository $skillRepository,
+        SkillsRepository $skillsRepository,
         Slugify $slugify
     ) {
-        $this->skillRepository = $skillRepository;
+        $this->skillsRepository = $skillsRepository;
         $this->slugify = $slugify;
     }
 
@@ -28,7 +28,7 @@ class AddSkill
             $this->slugify->slugify($command->getName())
         );
 
-        $this->skillRepository->add($skill);
+        $this->skillsRepository->add($skill);
 
         $responder->skillSuccessfullyAdded($skill);
     }
