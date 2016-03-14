@@ -6,6 +6,10 @@ skill_read:
     type:     rest
     resource: AppBundle\Controller\Skills\ReadController
 
+skill_delete:
+    type:     rest
+    resource: AppBundle\Controller\Skills\DeleteController
+
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc

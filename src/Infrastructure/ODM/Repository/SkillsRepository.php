@@ -25,4 +25,15 @@ class SkillsRepository implements SkillsRepositoryInterface
     {
         return $this->manager->getRepository(Skill::class)->findBy([]);
     }
+
+    public function find($id)
+    {
+        return $this->manager->getRepository(Skill::class)->find($id);
+    }
+
+    public function remove(Skill $skill)
+    {
+        $this->manager->remove($skill);
+        $this->manager->flush();
+    }
 }

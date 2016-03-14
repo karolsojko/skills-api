@@ -9,4 +9,8 @@ interface SkillsRepository
     public function add(Skill $skill);
 
     public function findAll();
+
+    public function find($id);
+
+    public function remove(Skill $skill);
 }

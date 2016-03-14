@@ -11,3 +11,6 @@ services:
     app.use_case.list_skills:
         class: Domain\UseCase\ListSkills
         arguments: ['@app.repository.skill']
+    app.use_case.remove_skill:
+        class: Domain\UseCase\RemoveSkill
+        arguments: ['@app.repository.skill']
