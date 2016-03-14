@@ -59,6 +59,22 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
+doctrine_mongodb:
+    connections:
+        default:
+            server: mongodb://db:27017
+            options: {}
+    default_database: skills
+    document_managers:
+        default:
+            auto_mapping: true
+            mappings:
+                skills:
+                    type: yml
+                    dir: %kernel.root_dir%/../src/Infrastructure/ODM/Mapping/
+                    prefix: Domain\Model
+                    is_bundle: false
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
@@ -66,3 +82,20 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    routing_loader:
+        default_format: json
+    format_listener:
+        enabled: true
+        rules:
+            - { path: '^/', priorities: ['json', 'xml'], fallback_format: 'html' }
+    view:
+        view_response_listener: 'force'
+
+nelmio_api_doc:
+    name: Skills API
+    sandbox:
+        enabled: false

@@ -1,0 +1,10 @@
+Domain\Model\Skill:
+    fields:
+        id:
+            type: string
+            id: true
+            strategy: NONE
+        name:
+            type: string
+        slug:
+            type: string

@@ -1,9 +1,10 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
 parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.repository.skill:
+        class: Infrastructure\ODM\Repository\SkillsRepository
+        arguments: ['@doctrine.odm.mongodb.document_manager']
+    app.use_case.add_skill:
+        class: Domain\UseCase\AddSkill
+        arguments: ['@app.repository.skill', '@slugify']

@@ -2,20 +2,34 @@
 
 namespace Domain\Model;
 
-final class Skill
+use Ramsey\Uuid\Uuid;
+
+class Skill
 {
+    private $id;
     private $name;
     private $slug;
 
-    public function __construct($name)
+    public function __construct($name, $slug)
     {
+        $uuid = Uuid::uuid4();
+        $this->id = $uuid->toString();
         $this->name = $name;
-        $this->slug = $this->slugify($name);
+        $this->slug = $slug;
     }
 
-    private function slugify($string)
+    public function getId()
     {
-        return $string;
+        return $this->id;
     }
 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }
