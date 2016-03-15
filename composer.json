@@ -39,7 +39,8 @@
         "alcaeus/mongo-php-adapter": "dev-composer-provide",
         "ramsey/uuid": "^3.2",
         "cocur/slugify": "^2.0",
-        "nelmio/api-doc-bundle": "^2.11"
+        "nelmio/api-doc-bundle": "^2.11",
+        "nelmio/cors-bundle": "^1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

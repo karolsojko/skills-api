@@ -1,13 +1,16 @@
 skill_create:
     type:     rest
+    prefix: /api/v1
     resource: AppBundle\Controller\Skills\CreateController
 
 skill_read:
     type:     rest
+    prefix: /api/v1
     resource: AppBundle\Controller\Skills\ReadController
 
 skill_delete:
     type:     rest
+    prefix: /api/v1
     resource: AppBundle\Controller\Skills\DeleteController
 
 NelmioApiDocBundle:
