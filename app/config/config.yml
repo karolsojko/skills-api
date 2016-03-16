@@ -103,7 +103,7 @@ nelmio_api_doc:
 nelmio_cors:
     paths:
         '^/api/':
-            allow_origin: '*'
-            allow_headers: '*'
+            allow_origin: ['*']
+            allow_headers: ['content-type']
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS']
             max_age: 3600
