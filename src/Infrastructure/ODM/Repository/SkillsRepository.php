@@ -36,4 +36,9 @@ class SkillsRepository implements SkillsRepositoryInterface
         $this->manager->remove($skill);
         $this->manager->flush();
     }
+
+    public function findOneBy(array $parameters)
+    {
+      return $this->manager->getRepository(Skill::class)->findOneBy($parameters);
+    }
 }

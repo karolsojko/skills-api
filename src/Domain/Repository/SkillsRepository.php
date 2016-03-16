@@ -13,4 +13,6 @@ interface SkillsRepository
     public function find($id);
 
     public function remove(Skill $skill);
+
+    public function findOneBy(array $parameters);
 }

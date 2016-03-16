@@ -23,10 +23,15 @@ class AddSkill
 
     public function execute(Command $command, Responder $responder)
     {
-        $skill = new Skill(
-            $command->getName(),
-            $this->slugify->slugify($command->getName())
-        );
+        $slug = $this->slugify->slugify($command->getName());
+
+        $skill = $this->skillsRepository->findOneBy(['slug' => $slug]);
+        if (!empty($skill)) {
+            $responder->skillAlreadyExists($skill);
+            return;
+        }
+
+        $skill = new Skill($command->getName(), $slug);
 
         $this->skillsRepository->add($skill);
 
