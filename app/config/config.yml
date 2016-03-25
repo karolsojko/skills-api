@@ -107,3 +107,13 @@ nelmio_cors:
             allow_headers: ['*']
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS']
             max_age: 3600
+
+oneup_flysystem:
+    adapters:
+        app.s3_adapter:
+            awss3v3:
+                client: app.s3_client
+                bucket: %aws_s3_bucket%
+    filesystems:
+        s3:
+            adapter: app.s3_adapter
