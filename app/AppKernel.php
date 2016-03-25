@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
+            new Oneup\FlysystemBundle\OneupFlysystemBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
@@ -52,5 +53,10 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
+
+        $envParameters = $this->getEnvParameters();
+        $loader->load(function($container) use($envParameters) {
+            $container->getParameterBag()->add($envParameters);
+        });
     }
 }

@@ -4,6 +4,7 @@
 /var/*
 !/var/cache
 /var/cache/*
+/var/dump/*
 !var/cache/.gitkeep
 !/var/logs
 /var/logs/*
@@ -16,4 +17,5 @@
 /web/bundles/
 /bin/doctrine*
 /bin/phpspec
+/bin/jp.php
 /bin/security-checker

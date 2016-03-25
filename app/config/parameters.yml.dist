@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    aws_s3_key: ~
+    aws_s3_secret: ~
+    aws_s3_bucket: ~

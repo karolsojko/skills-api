@@ -1,6 +1,3 @@
-parameters:
-#    parameter_name: value
-
 services:
     app.repository.skill:
         class: Infrastructure\ODM\Repository\SkillsRepository
@@ -14,3 +11,14 @@ services:
     app.use_case.remove_skill:
         class: Domain\UseCase\RemoveSkill
         arguments: ['@app.repository.skill']
+    app.s3_client:
+        class: Aws\S3\S3Client
+        factory_class: Aws\S3\S3Client
+        factory_method: factory
+        arguments:
+            -
+                version: 'latest'
+                region: "eu-west-1"
+                credentials:
+                    key: "%aws_s3_key%"
+                    secret: "%aws_s3_secret%"
