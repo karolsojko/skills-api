@@ -23,7 +23,12 @@ class SkillsRepository implements SkillsRepositoryInterface
 
     public function findAll()
     {
-        return $this->manager->getRepository(Skill::class)->findBy([]);
+        return $this->manager->getRepository(Skill::class)->findBy(
+            [],
+            [
+                'slug' => 'ASC'
+            ]
+        );
     }
 
     public function find($id)
