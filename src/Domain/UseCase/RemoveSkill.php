@@ -17,14 +17,14 @@ class RemoveSkill
 
     public function execute(Command $command, Responder $responder)
     {
-        $skill = $this->skillsRepository->find($command->getId());
+        $skill = $this->skillsRepository->findOneBy(['slug' => $command->slug]);
         if (empty($skill)) {
-            $responder->skillNotFound($command->getId());
+            $responder->skillNotFound($command->slug);
             return;
         }
 
         $this->skillsRepository->remove($skill);
 
-        $responder->skillSuccessfullyRemoved($command->getId());
+        $responder->skillSuccessfullyRemoved($command->slug);
     }
 }

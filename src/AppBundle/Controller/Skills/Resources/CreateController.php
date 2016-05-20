@@ -23,11 +23,11 @@ class CreateController extends FOSRestController implements Responder
      *   }
      * )
      */
-    public function postSkillsResourcesAction($skillId, Request $request)
+    public function postSkillsResourcesAction($slug, Request $request)
     {
         $useCase = $this->get('app.use_case.add_resource');
         $useCase->execute(
-            new Command($skillId, $request->get('url'), $request->get('description')),
+            new Command($slug, $request->get('url'), $request->get('description')),
             $this
         );
 

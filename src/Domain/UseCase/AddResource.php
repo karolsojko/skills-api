@@ -18,7 +18,7 @@ class AddResource
 
     public function execute(Command $command, Responder $responder)
     {
-        $skill = $this->skillsRepository->find($command->skillId);
+        $skill = $this->skillsRepository->findOneBy(['slug' => $command->slug]);
 
         if (empty($skill)) {
             $responder->skillNotFound();
