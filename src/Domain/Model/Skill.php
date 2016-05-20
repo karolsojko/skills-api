@@ -9,6 +9,7 @@ class Skill
     private $id;
     private $name;
     private $slug;
+    private $resources;
 
     public function __construct($name, $slug)
     {
@@ -16,6 +17,7 @@ class Skill
         $this->id = $uuid->toString();
         $this->name = $name;
         $this->slug = $slug;
+        $this->resources = [];
     }
 
     public function getId()
@@ -31,5 +33,19 @@ class Skill
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    public function addResource(Resource $resource)
+    {
+        $this->resources[] = $resource;
+    }
+
+    public function removeResource($resourceId)
+    {
+        foreach($this->resources as $key => $resource) {
+            if ($resource->getId() == $resourceId) {
+                unset($this->resources[$key]);
+            }
+        }
     }
 }

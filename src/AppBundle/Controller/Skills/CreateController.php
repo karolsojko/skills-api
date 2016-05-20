@@ -37,6 +37,6 @@ class CreateController extends FOSRestController implements Responder
 
     public function skillAlreadyExists(Skill $skill)
     {
-      $this->view = $this->view($skill, 409);
+        $this->view = $this->view($skill, 409);
     }
 }
