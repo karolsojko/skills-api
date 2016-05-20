@@ -17,3 +17,5 @@
 /bin/doctrine*
 /bin/phpspec
 /bin/security-checker
+/.idea
+/bin/jp.php

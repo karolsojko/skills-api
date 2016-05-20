@@ -13,6 +13,11 @@ skill_delete:
     prefix: /api/v1
     resource: AppBundle\Controller\Skills\DeleteController
 
+resource_create:
+    type:     rest
+    prefix: /api/v1
+    resource: AppBundle\Controller\Skills\Resources\CreateController
+
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc
