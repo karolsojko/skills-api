@@ -4,13 +4,13 @@ namespace Domain\UseCase\AddResource;
 
 class Command
 {
-    public $skillId;
+    public $slug;
     public $url;
     public $description;
 
-    public function __construct($skillId, $url, $description)
+    public function __construct($slug, $url, $description)
     {
-        $this->skillId = $skillId;
+        $this->slug = $slug;
         $this->url = $url;
         $this->description = $description;
     }

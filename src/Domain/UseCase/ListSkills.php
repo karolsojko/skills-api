@@ -17,7 +17,11 @@ class ListSkills
 
     public function execute(Command $command, Responder $responder)
     {
-        $skills = $this->skillsRepository->findAll();
+        if ($command->slug) {
+            $skills = $this->skillsRepository->findOneBy(['slug' => $command->slug]);
+        } else {
+            $skills = $this->skillsRepository->findAll();
+        }
 
         $responder->skillsSuccessfullyRetrieved($skills);
     }

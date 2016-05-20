@@ -17,10 +17,10 @@ class DeleteController extends FOSRestController implements Responder
      *   description="Delete a resource"
      * )
      */
-    public function deleteSkillsResourcesAction($skillId, $resourceId)
+    public function deleteSkillsResourcesAction($slug, $resourceId)
     {
         $useCase = $this->get('app.use_case.remove_resource');
-        $useCase->execute(new Command($skillId, $resourceId), $this);
+        $useCase->execute(new Command($slug, $resourceId), $this);
 
         return $this->handleView($this->view);
     }

@@ -22,7 +22,7 @@ class AddResourceSpec extends ObjectBehavior
         Skill $skill,
         SkillsRepository $skillsRepository
     ) {
-        $skillsRepository->find($skillId = 1)->willReturn($skill);
+        $skillsRepository->findOneBy(['slug' => $slug = 'php'])->willReturn($skill);
 
         $skill->addResource(Argument::type(Resource::class))->shouldBeCalled();
 
@@ -30,17 +30,17 @@ class AddResourceSpec extends ObjectBehavior
 
         $responder->resourceSuccessfullyAdded($skill)->shouldBeCalled();
 
-        $this->execute(new Command($skillId, $url = 'test', $description = 'test'), $responder);
+        $this->execute(new Command($slug, $url = 'test', $description = 'test'), $responder);
     }
 
     function it_should_notify_the_responder_if_skill_is_not_found(
         Responder $responder,
         SkillsRepository $skillsRepository
     ) {
-        $skillsRepository->find($skillId = 1)->willReturn(null);
+        $skillsRepository->findOneBy(['slug' => $slug = 'php'])->willReturn(null);
 
         $responder->skillNotFound()->shouldBeCalled();
 
-        $this->execute(new Command($skillId, $url = 'test', $description = 'test'), $responder);
+        $this->execute(new Command($slug, $url = 'test', $description = 'test'), $responder);
     }
 }

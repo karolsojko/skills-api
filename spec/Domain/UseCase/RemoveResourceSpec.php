@@ -21,7 +21,7 @@ class RemoveResourceSpec extends ObjectBehavior
         Skill $skill,
         Responder $responder
     ) {
-        $skillsRepository->find($skillId = 1)->willReturn($skill);
+        $skillsRepository->findOneBy(['slug' => $slug = 'php'])->willReturn($skill);
 
         $skill->removeResource($resourceId = 2)->shouldBeCalled();
 
@@ -29,6 +29,6 @@ class RemoveResourceSpec extends ObjectBehavior
 
         $responder->resourceSuccessfullyRemoved()->shouldBeCalled();
 
-        $this->execute(new Command($skillId, $resourceId), $responder);
+        $this->execute(new Command($slug, $resourceId), $responder);
     }
 }

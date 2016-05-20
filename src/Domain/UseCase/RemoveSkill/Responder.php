@@ -4,7 +4,7 @@ namespace Domain\UseCase\RemoveSkill;
 
 interface Responder
 {
-    public function skillSuccessfullyRemoved($id);
+    public function skillSuccessfullyRemoved($slug);
 
-    public function skillNotFound($id);
+    public function skillNotFound($slug);
 }

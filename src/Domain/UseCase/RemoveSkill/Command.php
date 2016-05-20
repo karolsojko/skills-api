@@ -4,15 +4,10 @@ namespace Domain\UseCase\RemoveSkill;
 
 class Command
 {
-    private $id;
+    public $slug;
 
-    public function __construct($id)
+    public function __construct($slug)
     {
-        $this->id = $id;
-    }
-
-    public function getId()
-    {
-        return $this->id;
+        $this->slug = $slug;
     }
 }

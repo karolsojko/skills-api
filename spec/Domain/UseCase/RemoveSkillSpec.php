@@ -20,11 +20,11 @@ class RemoveSkillSpec extends ObjectBehavior
         SkillsRepository $skillsRepository,
         Responder $responder
     ) {
-        $skillsRepository->find($id = '1')->willReturn(null);
+        $skillsRepository->findOneBy(['slug' => $slug = 'php'])->willReturn(null);
 
-        $responder->skillNotFound($id)->shouldBeCalled();
+        $responder->skillNotFound($slug)->shouldBeCalled();
 
-        $this->execute(new Command($id), $responder);
+        $this->execute(new Command($slug), $responder);
     }
 
     function it_should_remove_a_skill_and_notify_the_responder(
@@ -32,7 +32,7 @@ class RemoveSkillSpec extends ObjectBehavior
         Responder $responder
     ) {
         $skillsRepository
-            ->find($id = '1')
+            ->findOneBy(['slug' => $slug = 'php'])
             ->willReturn($skill = new Skill('php', 'php'));
 
         $skillsRepository
@@ -40,9 +40,9 @@ class RemoveSkillSpec extends ObjectBehavior
             ->shouldBeCalled();
 
         $responder
-            ->skillSuccessfullyRemoved($id)
+            ->skillSuccessfullyRemoved($slug)
             ->shouldBeCalled();
 
-        $this->execute(new Command($id), $responder);
+        $this->execute(new Command($slug), $responder);
     }
 }

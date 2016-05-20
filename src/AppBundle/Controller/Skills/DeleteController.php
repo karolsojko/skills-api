@@ -5,7 +5,6 @@ namespace AppBundle\Controller\Skills;
 use FOS\RestBundle\Controller\FOSRestController;
 use Domain\UseCase\RemoveSkill\Responder;
 use Domain\UseCase\RemoveSkill\Command;
-use Domain\Model\Skill;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class DeleteController extends FOSRestController implements Responder
@@ -15,26 +14,23 @@ class DeleteController extends FOSRestController implements Responder
     /**
      * @ApiDoc(
      *   resource=true,
-     *   description="Delete a skill",
-     *   parameters={
-     *     {"name"="id", "dataType"="string", "description"="skill id"}
-     *   }
+     *   description="Delete a skill"
      * )
      */
-    public function deleteSkillsAction($id)
+    public function deleteSkillsAction($slug)
     {
         $useCase = $this->get('app.use_case.remove_skill');
-        $useCase->execute(new Command($id), $this);
+        $useCase->execute(new Command($slug), $this);
 
         return $this->handleView($this->view);
     }
 
-    public function skillSuccessfullyRemoved($id)
+    public function skillSuccessfullyRemoved($slug)
     {
         $this->view = $this->view(null, 204);
     }
 
-    public function skillNotFound($id)
+    public function skillNotFound($slug)
     {
         throw $this->createNotFoundException('Skill does not exist');
     }

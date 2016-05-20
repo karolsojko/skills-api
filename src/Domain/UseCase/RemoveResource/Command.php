@@ -4,12 +4,12 @@ namespace Domain\UseCase\RemoveResource;
 
 class Command
 {
-    public $skillId;
+    public $slug;
     public $resourceId;
 
-    public function __construct($skillId, $resourceId)
+    public function __construct($slug, $resourceId)
     {
-        $this->skillId = $skillId;
+        $this->slug = $slug;
         $this->resourceId = $resourceId;
     }
 }
