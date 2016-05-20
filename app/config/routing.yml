@@ -18,6 +18,11 @@ resource_create:
     prefix: /api/v1
     resource: AppBundle\Controller\Skills\Resources\CreateController
 
+resource_remove:
+    type:     rest
+    prefix: /api/v1
+    resource: AppBundle\Controller\Skills\Resources\DeleteController
+
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc

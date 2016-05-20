@@ -39,4 +39,13 @@ class Skill
     {
         $this->resources[] = $resource;
     }
+
+    public function removeResource($resourceId)
+    {
+        foreach($this->resources as $key => $resource) {
+            if ($resource->getId() == $resourceId) {
+                unset($this->resources[$key]);
+            }
+        }
+    }
 }

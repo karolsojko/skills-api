@@ -17,3 +17,6 @@ services:
     app.use_case.add_resource:
         class: Domain\UseCase\AddResource
         arguments: ['@app.repository.skill']
+    app.use_case.remove_resource:
+        class: Domain\UseCase\RemoveResource
+        arguments: ['@app.repository.skill']

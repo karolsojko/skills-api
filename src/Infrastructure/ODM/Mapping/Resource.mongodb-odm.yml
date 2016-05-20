@@ -1,13 +1,11 @@
-Domain\Model\Skill:
+Domain\Model\Resource:
+    type: embeddedDocument
     fields:
         id:
             type: string
             id: true
             strategy: NONE
-        name:
+        url:
             type: string
-        slug:
+        description:
             type: string
-    embedMany:
-        resources:
-            targetDocument: Domain\Model\Resource
