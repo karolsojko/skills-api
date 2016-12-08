@@ -4,30 +4,30 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "317e213a4be0c6a030caab59723f102c",
-    "content-hash": "bd352c330076e6846d8cdf1d370d5900",
+    "hash": "2e8b78088e1ab5a5367ee15ceaff73d9",
+    "content-hash": "7bd12953736bd8f8b68840312f7dce3a",
     "packages": [
         {
             "name": "alcaeus/mongo-php-adapter",
-            "version": "dev-composer-provide",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alcaeus/mongo-php-adapter.git",
-                "reference": "698d3012c306af299491aa166dc9aa29a4bce5b8"
+                "reference": "6ebf8087be2e4c6eb13fcd74f5dc549bea84a7de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alcaeus/mongo-php-adapter/zipball/698d3012c306af299491aa166dc9aa29a4bce5b8",
-                "reference": "698d3012c306af299491aa166dc9aa29a4bce5b8",
+                "url": "https://api.github.com/repos/alcaeus/mongo-php-adapter/zipball/6ebf8087be2e4c6eb13fcd74f5dc549bea84a7de",
+                "reference": "6ebf8087be2e4c6eb13fcd74f5dc549bea84a7de",
                 "shasum": ""
             },
             "require": {
                 "ext-hash": "*",
-                "mongodb/mongodb": "^1.0.0",
+                "mongodb/mongodb": "^1.0.1",
                 "php": "^5.5 || ^7.0"
             },
             "provide": {
-                "ext-mongo": "1.6.12"
+                "ext-mongo": "1.6.13"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.8 || ^5.0"
@@ -68,7 +68,7 @@
                 "database",
                 "mongodb"
             ],
-            "time": "2016-02-25 06:48:46"
+            "time": "2016-10-07 05:18:57"
         },
         {
             "name": "cocur/slugify",
@@ -824,34 +824,35 @@
         },
         {
             "name": "doctrine/mongodb",
-            "version": "dev-master",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/mongodb.git",
-                "reference": "2e17347ad0a49d60e755ae5702e3841d76df8dc8"
+                "reference": "293ad1ee54b507e269d6a1309dbeb8c00621b00e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/mongodb/zipball/2e17347ad0a49d60e755ae5702e3841d76df8dc8",
-                "reference": "2e17347ad0a49d60e755ae5702e3841d76df8dc8",
+                "url": "https://api.github.com/repos/doctrine/mongodb/zipball/293ad1ee54b507e269d6a1309dbeb8c00621b00e",
+                "reference": "293ad1ee54b507e269d6a1309dbeb8c00621b00e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "^2.2",
                 "ext-mongo": "^1.5",
-                "php": "^5.5 || ^7.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "jmikola/geojson": "^1.0",
                 "phpunit/phpunit": "~4.8|~5.0"
             },
             "suggest": {
+                "alcaeus/mongo-php-adapter": "Allows usage of PHP 7",
                 "jmikola/geojson": "Support GeoJSON geometry objects in 2dsphere queries"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "1.4.x-dev"
                 }
             },
             "autoload": {
@@ -896,20 +897,20 @@
                 "mongodb",
                 "persistence"
             ],
-            "time": "2016-02-29 20:11:27"
+            "time": "2016-11-22 19:01:59"
         },
         {
             "name": "doctrine/mongodb-odm",
-            "version": "dev-master",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/mongodb-odm.git",
-                "reference": "0573f48b25e16633ad4fd2c1490a0bb65d3c7354"
+                "reference": "e839648ef7649757aae3b9818236a6fa47c016cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/0573f48b25e16633ad4fd2c1490a0bb65d3c7354",
-                "reference": "0573f48b25e16633ad4fd2c1490a0bb65d3c7354",
+                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/e839648ef7649757aae3b9818236a6fa47c016cd",
+                "reference": "e839648ef7649757aae3b9818236a6fa47c016cd",
                 "shasum": ""
             },
             "require": {
@@ -919,9 +920,8 @@
                 "doctrine/common": "~2.4",
                 "doctrine/inflector": "~1.0",
                 "doctrine/instantiator": "~1.0.1",
-                "doctrine/mongodb": "~1.2",
-                "ext-mongo": "^1.5",
-                "php": "^5.5 || ^7.0",
+                "doctrine/mongodb": "~1.3",
+                "php": "^5.6 || ^7.0",
                 "symfony/console": "~2.3|~3.0"
             },
             "require-dev": {
@@ -929,12 +929,13 @@
                 "symfony/yaml": "~2.3|~3.0"
             },
             "suggest": {
+                "alcaeus/mongo-php-adapter": "Allows usage of PHP 7",
                 "symfony/yaml": "Enables the YAML metadata mapping driver"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -980,25 +981,25 @@
                 "odm",
                 "persistence"
             ],
-            "time": "2016-03-14 07:00:42"
+            "time": "2016-10-07 09:18:05"
         },
         {
             "name": "doctrine/mongodb-odm-bundle",
-            "version": "dev-master",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMongoDBBundle.git",
-                "reference": "ce00014143c266ef59e56885d1b5fb30c5cf91be"
+                "reference": "9ad10aa1c64fe140537ebb1306fe0f4d2357f6fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMongoDBBundle/zipball/ce00014143c266ef59e56885d1b5fb30c5cf91be",
-                "reference": "ce00014143c266ef59e56885d1b5fb30c5cf91be",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMongoDBBundle/zipball/9ad10aa1c64fe140537ebb1306fe0f4d2357f6fd",
+                "reference": "9ad10aa1c64fe140537ebb1306fe0f4d2357f6fd",
                 "shasum": ""
             },
             "require": {
-                "doctrine/mongodb-odm": "^1.0",
-                "php": "^5.5 || ^7.0",
+                "doctrine/mongodb-odm": "^1.1",
+                "php": "^5.6 || ^7.0",
                 "psr/log": "^1.0",
                 "symfony/config": "^2.7 || ^3.0",
                 "symfony/console": "^2.7 || ^3.0",
@@ -1009,6 +1010,7 @@
             },
             "require-dev": {
                 "doctrine/data-fixtures": "@dev",
+                "phpunit/phpunit": "^5.6",
                 "symfony/form": "^2.7 || ^3.0",
                 "symfony/phpunit-bridge": "^2.7 || ^3.0",
                 "symfony/yaml": "^2.7 || ^3.0"
@@ -1052,7 +1054,7 @@
                 "persistence",
                 "symfony"
             ],
-            "time": "2016-03-03 19:57:39"
+            "time": "2016-12-08 07:05:40"
         },
         {
             "name": "doctrine/orm",
@@ -1600,16 +1602,16 @@
         },
         {
             "name": "mongodb/mongodb",
-            "version": "1.0.1",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mongodb/mongo-php-library.git",
-                "reference": "6093d68c06bebcc5361b9e49178725efd9182ed4"
+                "reference": "302de20d8302183e1c70b335d81798cec5bcebd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/6093d68c06bebcc5361b9e49178725efd9182ed4",
-                "reference": "6093d68c06bebcc5361b9e49178725efd9182ed4",
+                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/302de20d8302183e1c70b335d81798cec5bcebd4",
+                "reference": "302de20d8302183e1c70b335d81798cec5bcebd4",
                 "shasum": ""
             },
             "require": {
@@ -1617,11 +1619,6 @@
                 "php": ">=5.4"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "MongoDB\\": "src/"
@@ -1656,7 +1653,7 @@
                 "mongodb",
                 "persistence"
             ],
-            "time": "2016-03-04 20:27:01"
+            "time": "2016-12-05 20:02:14"
         },
         {
             "name": "monolog/monolog",
@@ -3595,13 +3592,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "doctrine/mongodb": 20,
-        "doctrine/mongodb-odm": 20,
-        "doctrine/mongodb-odm-bundle": 20,
-        "mongodb/mongodb": 10,
-        "alcaeus/mongo-php-adapter": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
