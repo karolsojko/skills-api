@@ -18,6 +18,7 @@ class CreateController extends FOSRestController implements Responder
      *   resource=true,
      *   description="Create a resource",
      *   parameters={
+     *     {"name"="type", "dataType"="string", "required"=true, "description"="resource type (video, tutorial, course, etc)"},
      *     {"name"="url", "dataType"="string", "required"=true, "description"="resource url"},
      *     {"name"="description", "dataType"="string", "required"=true, "description"="resource description"}
      *   }
@@ -27,7 +28,7 @@ class CreateController extends FOSRestController implements Responder
     {
         $useCase = $this->get('app.use_case.add_resource');
         $useCase->execute(
-            new Command($slug, $request->get('url'), $request->get('description')),
+            new Command($slug, $request->get('type'), $request->get('url'), $request->get('description')),
             $this
         );
 

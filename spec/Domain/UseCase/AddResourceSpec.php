@@ -30,7 +30,7 @@ class AddResourceSpec extends ObjectBehavior
 
         $responder->resourceSuccessfullyAdded($skill)->shouldBeCalled();
 
-        $this->execute(new Command($slug, $url = 'test', $description = 'test'), $responder);
+        $this->execute(new Command($slug, $type = 'test', $url = 'test', $description = 'test'), $responder);
     }
 
     function it_should_notify_the_responder_if_skill_is_not_found(
@@ -41,6 +41,6 @@ class AddResourceSpec extends ObjectBehavior
 
         $responder->skillNotFound()->shouldBeCalled();
 
-        $this->execute(new Command($slug, $url = 'test', $description = 'test'), $responder);
+        $this->execute(new Command($slug, $type = 'test', $url = 'test', $description = 'test'), $responder);
     }
 }

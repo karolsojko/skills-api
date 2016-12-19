@@ -25,7 +25,7 @@ class AddResource
             return;
         }
 
-        $resource = new Resource($command->url, $command->description);
+        $resource = new Resource($command->type, $command->url, $command->description);
 
         $skill->addResource($resource);
 

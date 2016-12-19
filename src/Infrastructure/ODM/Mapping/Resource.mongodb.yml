@@ -5,6 +5,9 @@ Domain\Model\Resource:
             type: string
             id: true
             strategy: NONE
+            
+        type:
+            type: string
         url:
             type: string
         description:
