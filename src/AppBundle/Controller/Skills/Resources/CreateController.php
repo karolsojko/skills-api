@@ -18,6 +18,7 @@ class CreateController extends FOSRestController implements Responder
      *   resource=true,
      *   description="Create a resource",
      *   parameters={
+     *     {"name"="type", "dataType"="string", "required"=true, "description"="resource type (video, tutorial, course, etc)"},
      *     {"name"="url", "dataType"="string", "required"=true, "description"="resource url"},
      *     {"name"="description", "dataType"="string", "required"=true, "description"="resource description"}
      *   }
