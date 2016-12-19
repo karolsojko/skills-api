@@ -8,12 +8,14 @@ class Resource
 {
     private $id;
     private $url;
+    private $type;
     private $description;
 
-    public function __construct($url, $description)
+    public function __construct($type, $url, $description)
     {
         $uuid = Uuid::uuid4();
         $this->id = $uuid->toString();
+        $this->type = $type;
         $this->url = $url;
         $this->description = $description;
     }
@@ -24,6 +26,22 @@ class Resource
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 
     /**

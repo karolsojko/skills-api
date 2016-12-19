@@ -27,7 +27,7 @@ class CreateController extends FOSRestController implements Responder
     {
         $useCase = $this->get('app.use_case.add_resource');
         $useCase->execute(
-            new Command($slug, $request->get('url'), $request->get('description')),
+            new Command($slug, $request->get('type'), $request->get('url'), $request->get('description')),
             $this
         );
 
