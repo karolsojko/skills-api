@@ -10,14 +10,16 @@ class Resource
     private $url;
     private $type;
     private $description;
+    private $authorId;
 
-    public function __construct($type, $url, $description)
+    public function __construct($type, $url, $description, $authorId)
     {
         $uuid = Uuid::uuid4();
         $this->id = $uuid->toString();
         $this->type = $type;
         $this->url = $url;
         $this->description = $description;
+        $this->authorId = $authorId;
     }
 
     /**
@@ -74,5 +76,21 @@ class Resource
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * @param string $authorId
+     */
+    public function setAuthorId(string $authorId)
+    {
+        $this->authorId = $authorId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthorId()
+    {
+      return $this->authorId;
     }
 }
