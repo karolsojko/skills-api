@@ -2,12 +2,12 @@
 
 namespace Domain\UseCase;
 
-use Domain\Model\Resource;
+use Domain\Model\ResourceVote;
 use Domain\Repository\SkillsRepository;
-use Domain\UseCase\AddResource\Command;
-use Domain\UseCase\AddResource\Responder;
+use Domain\UseCase\AddResourceVote\Command;
+use Domain\UseCase\AddResourceVote\Responder;
 
-class AddResource
+class AddResourceVote
 {
     private $skillsRepository;
 
@@ -25,12 +25,12 @@ class AddResource
             return;
         }
 
-        $resource = new Resource($command->type, $command->url, $command->description, $command->authorId);
+        $resourceVote = new ResourceVote($command->user, $command->vote);
 
-        $skill->addResource($resource);
+        $skill->addResourceVote($command->resource_id, $resourceVote);
 
         $this->skillsRepository->add($skill);
 
-        $responder->resourceSuccessfullyAdded($skill);
+        $responder->resourceVoteSuccessfullyAdded($skill);
     }
 }

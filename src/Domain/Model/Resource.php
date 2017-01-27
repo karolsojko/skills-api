@@ -10,14 +10,21 @@ class Resource
     private $url;
     private $type;
     private $description;
+    private $authorId;
+    private $votesTotal;
+    private $votes;
 
-    public function __construct($type, $url, $description)
+    public function __construct($type, $url, $description, $authorId, $votesTotal = 0, $votes = array())
+
     {
         $uuid = Uuid::uuid4();
         $this->id = $uuid->toString();
         $this->type = $type;
         $this->url = $url;
         $this->description = $description;
+        $this->authorId = $authorId;
+        $this->votesTotal = $votesTotal;
+        $this->votes = $votes;
     }
 
     /**
@@ -75,4 +82,67 @@ class Resource
     {
         $this->description = $description;
     }
+
+    /**
+     * @param string $authorId
+     */
+    public function setAuthorId(string $authorId)
+    {
+        $this->authorId = $authorId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthorId()
+    {
+      return $this->authorId;
+    }
+
+    /**
+     * @return array
+     */
+    public function getVotes()
+    {
+        return $this->votes;
+    }
+
+    /**
+     * @param ResourceVote $vote
+     */
+    public function addVote(ResourceVote $vote)
+    {
+        $this->votes[] = $vote;
+        $this->votesTotal += $vote->getVote();
+    }
+
+    /**
+     * @param string $voteId
+     */
+    public function removeVote($voteId)
+    {
+        foreach($this->votes as $key => $vote) {
+            if ($vote->getId() == $voteId) {
+                $this->votesTotal -= $vote->getVote();
+                unset($this->votes[$key]);
+            }
+        }
+    }
+
+    /**
+     * @return integer
+     */
+    public function getVotesTotal()
+    {
+        return $this->votesTotal;
+    }
+
+    /**
+     * @param integer $votesTotal
+     */
+    public function setVotesTotal($votesTotal)
+    {
+        $this->votesTotal = $votesTotal;
+    }
+
 }

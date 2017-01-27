@@ -1,0 +1,12 @@
+Domain\Model\ResourceVote:
+    type: embeddedDocument
+    fields:
+        id:
+            type: string
+            id: true
+            strategy: NONE
+
+        user:
+            type: string
+        vote:
+            type: integer

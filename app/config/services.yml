@@ -20,3 +20,6 @@ services:
     app.use_case.remove_resource:
         class: Domain\UseCase\RemoveResource
         arguments: ['@app.repository.skill']
+    app.use_case.add_resource_vote:
+        class: Domain\UseCase\AddResourceVote
+        arguments: ['@app.repository.skill']

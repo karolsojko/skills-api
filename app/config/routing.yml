@@ -23,6 +23,11 @@ resource_remove:
     prefix: /api/v1
     resource: AppBundle\Controller\Skills\Resources\DeleteController
 
+resource_vote_create:
+    type:     rest
+    prefix: /api/v1
+    resource: AppBundle\Controller\Skills\Resources\ResourceVotes\CreateController
+
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api/doc

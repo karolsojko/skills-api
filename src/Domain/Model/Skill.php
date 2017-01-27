@@ -48,4 +48,23 @@ class Skill
             }
         }
     }
+
+    public function addResourceVote($resourceId, ResourceVote $resourceVote) {
+        foreach($this->resources as $key => $resource) {
+            if ($resource->getId() == $resourceId) {
+                foreach($resource->getVotes() as $key => $vote) {
+                    if ($vote->getUser() == $resourceVote->getUser()) {
+                        // Update the vote count. Remove old vote value and
+                        // add new one. If its the same value, there's no change
+                        $resource->setVotesTotal($resource->getVotesTotal() + $resourceVote->getVote() - $vote->getVote());
+                        $vote->setVote($resourceVote->getVote());
+                        return;
+                    }
+                }
+                // If we're here, this is the first vote for the user. Add it.
+                $resource->addVote($resourceVote);
+                return;
+            }
+        }
+    }
 }
