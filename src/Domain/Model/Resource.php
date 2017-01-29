@@ -15,7 +15,6 @@ class Resource
     private $votes;
 
     public function __construct($type, $url, $description, $authorId, $votesTotal = 0, $votes = array())
-
     {
         $uuid = Uuid::uuid4();
         $this->id = $uuid->toString();
@@ -144,5 +143,4 @@ class Resource
     {
         $this->votesTotal = $votesTotal;
     }
-
 }
