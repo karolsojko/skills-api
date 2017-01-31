@@ -2,7 +2,7 @@
 
 namespace spec\Domain\UseCase;
 
-use Domain\Model\ResourceVotes;
+use Domain\Model\ResourceVote;
 use Domain\Model\Resource;
 use Domain\Model\Skill;
 use Domain\Repository\SkillsRepository;
@@ -21,18 +21,18 @@ class AddResourceVoteSpec extends ObjectBehavior
     function it_should_add_a_resource_vote_to_resource_and_notify_the_responder(
         Responder $responder,
         Skill $skill,
-        Resource $resource,
+        $resourceId,
         SkillsRepository $skillsRepository
     ) {
         $skillsRepository->findOneBy(['slug' => $slug = 'php'])->willReturn($skill);
 
-        $skill->addResourceVote(Argument::type(ResourceVote::class))->shouldBeCalled();
+        $skill->addResourceVote($resourceId, Argument::type(ResourceVote::class))->shouldBeCalled();
 
         $skillsRepository->add($skill)->shouldBeCalled();
 
         $responder->resourceVoteSuccessfullyAdded($skill)->shouldBeCalled();
 
-        $this->execute(new Command($slug, $resource, $user = 'test', $vote = 1), $responder);
+        $this->execute(new Command($slug, $resourceId, $user = 'test', $vote = 1), $responder);
     }
 
     function it_should_notify_the_responder_if_skill_is_not_found(
@@ -43,6 +43,6 @@ class AddResourceVoteSpec extends ObjectBehavior
 
         $responder->skillNotFound()->shouldBeCalled();
 
-        $this->execute(new Command($slug, $resource, $user = 'test', $vote = 1), $responder);
+        $this->execute(new Command($slug, $resourceId='test', $user = 'test', $vote = 1), $responder);
     }
 }

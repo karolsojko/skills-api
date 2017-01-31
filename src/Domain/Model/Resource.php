@@ -14,7 +14,7 @@ class Resource
     private $votesTotal;
     private $votes;
 
-    public function __construct($type, $url, $description, $authorId, $votesTotal = 0, $votes = array())
+    public function __construct($type, $url, $description, $authorId)
     {
         $uuid = Uuid::uuid4();
         $this->id = $uuid->toString();
@@ -22,8 +22,8 @@ class Resource
         $this->url = $url;
         $this->description = $description;
         $this->authorId = $authorId;
-        $this->votesTotal = $votesTotal;
-        $this->votes = $votes;
+        $this->votesTotal = 0;
+        $this->votes = array();
     }
 
     /**
@@ -112,7 +112,7 @@ class Resource
     public function addVote(ResourceVote $vote)
     {
         $this->votes[] = $vote;
-        $this->votesTotal += $vote->getVote();
+        $this->votesTotal += $vote->getValue();
     }
 
     /**
@@ -122,10 +122,24 @@ class Resource
     {
         foreach($this->votes as $key => $vote) {
             if ($vote->getId() == $voteId) {
-                $this->votesTotal -= $vote->getVote();
+                $this->votesTotal -= $vote->getValue();
                 unset($this->votes[$key]);
             }
         }
+    }
+
+    /**
+     * @param string $user
+     * @return ResourceVote
+     */
+    public function getVoteByUser($user)
+    {
+        foreach($this->votes as $key => $vote) {
+            if ($vote->getUser() == $user) {
+                return $vote;
+            }
+        }
+        return false;
     }
 
     /**

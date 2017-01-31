@@ -5,14 +5,14 @@ namespace Domain\UseCase\AddResourceVote;
 class Command
 {
     public $slug;
-    public $resource_id;
+    public $resourceId;
     public $user;
     public $vote;
 
-    public function __construct($slug, $resource_id, $user, $vote)
+    public function __construct($slug, $resourceId, $user, $vote)
     {
         $this->slug = $slug;
-        $this->resource_id = $resource_id;
+        $this->resourceId = $resourceId;
         $this->user = $user;
         $this->vote = $vote;
     }

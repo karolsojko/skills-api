@@ -27,7 +27,7 @@ class AddResourceVote
 
         $resourceVote = new ResourceVote($command->user, $command->vote);
 
-        $skill->addResourceVote($command->resource_id, $resourceVote);
+        $skill->addResourceVote($command->resourceId, $resourceVote);
 
         $this->skillsRepository->add($skill);
 

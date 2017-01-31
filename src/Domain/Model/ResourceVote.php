@@ -45,7 +45,7 @@ class ResourceVote
     /**
      * @return integer
      */
-    public function getVote()
+    public function getValue()
     {
         return $this->vote;
     }
@@ -53,8 +53,8 @@ class ResourceVote
     /**
      * @param integer $vote
      */
-    public function setVote($vote)
+    public function setValue($value)
     {
-        $this->vote = $vote;
+        $this->vote = $value;
     }
 }
