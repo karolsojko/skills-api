@@ -48,4 +48,25 @@ class Skill
             }
         }
     }
+
+    public function getResource($resourceId) {
+        foreach($this->resources as $key => $resource) {
+          if ($resource->getId() == $resourceId) {
+            return $resource;
+          }
+        }
+        return false;
+    }
+
+    public function addResourceVote($resourceId, ResourceVote $resourceVote) {
+        if ($resource = $this->getResource($resourceId)) {
+            if ($vote = $resource->getVoteByUser($resourceVote->getUser())) {
+              $resource->setVotesTotal($resource->getVotesTotal() + $resourceVote->getValue() - $vote->getValue());
+              $vote->setValue($resourceVote->getValue());
+            }
+            else {
+              $resource->addVote($resourceVote);
+            }
+        }
+    }
 }

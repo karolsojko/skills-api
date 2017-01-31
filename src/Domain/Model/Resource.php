@@ -11,6 +11,8 @@ class Resource
     private $type;
     private $description;
     private $authorId;
+    private $votesTotal;
+    private $votes;
 
     public function __construct($type, $url, $description, $authorId)
     {
@@ -20,6 +22,8 @@ class Resource
         $this->url = $url;
         $this->description = $description;
         $this->authorId = $authorId;
+        $this->votesTotal = 0;
+        $this->votes = array();
     }
 
     /**
@@ -92,5 +96,65 @@ class Resource
     public function getAuthorId()
     {
       return $this->authorId;
+    }
+
+    /**
+     * @return array
+     */
+    public function getVotes()
+    {
+        return $this->votes;
+    }
+
+    /**
+     * @param ResourceVote $vote
+     */
+    public function addVote(ResourceVote $vote)
+    {
+        $this->votes[] = $vote;
+        $this->votesTotal += $vote->getValue();
+    }
+
+    /**
+     * @param string $voteId
+     */
+    public function removeVote($voteId)
+    {
+        foreach($this->votes as $key => $vote) {
+            if ($vote->getId() == $voteId) {
+                $this->votesTotal -= $vote->getValue();
+                unset($this->votes[$key]);
+            }
+        }
+    }
+
+    /**
+     * @param string $user
+     * @return ResourceVote
+     */
+    public function getVoteByUser($user)
+    {
+        foreach($this->votes as $key => $vote) {
+            if ($vote->getUser() == $user) {
+                return $vote;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getVotesTotal()
+    {
+        return $this->votesTotal;
+    }
+
+    /**
+     * @param integer $votesTotal
+     */
+    public function setVotesTotal($votesTotal)
+    {
+        $this->votesTotal = $votesTotal;
     }
 }
